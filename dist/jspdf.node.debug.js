@@ -4,8 +4,8 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 /** @license
  * jsPDF - PDF Document creation from JavaScript
- * Version 1.5.2 Built on 2018-12-20T15:49:08.058Z
- *                      CommitID 81f5c40ca4
+ * Version 1.5.2 Built on 2018-12-24T06:08:25.211Z
+ *                      CommitID af0255b6d3
  *
  * Copyright (c) 2010-2016 James Hall <james@parall.ax>, https://github.com/MrRio/jsPDF
  *               2010 Aaron Spike, https://github.com/acspike
@@ -15341,6 +15341,11 @@ window.tmp = jsPDF;
       return false;
     };
 
+    try {
+      var buffer = {};
+      if (typeof buffer.Buffer === 'function') _Buffer = buffer.Buffer;
+    } catch (error) {}
+
     return function _isBuffer(value) {
       return value instanceof ArrayBuffer || _Buffer !== null && value instanceof _Buffer;
     };
@@ -19108,7 +19113,12 @@ window.tmp = BmpDecoder;
 (function (global) {
 
   function RGBColor(color_string) {
-    this.ok = false; // strip any leading #
+    this.ok = false;
+
+    if (typeof color_string !== 'string') {
+      return '#000';
+    } // strip any leading #
+
 
     if (color_string.charAt(0) == '#') {
       // remove # if any
