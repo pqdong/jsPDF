@@ -20,7 +20,7 @@
     "url": "https://github.com/MrRio/jsPDF.git"
   },
   "dependencies": {
-    "canvg": "1.5.3",
+    "canvg": "https://github.com/pqdong/canvg/tarball/2f0b5737cb02c40801afdf2a4b9a489197b36e8c",
     "cf-blob.js": "0.0.1",
     "file-saver": "2.0.0",
     "html2canvas": "1.0.0-alpha.12",
